@@ -31,17 +31,17 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) 
   {
-    //embedded loops, suits on outsode
-		for (int i = 0; i < suits.length; i++)
+    cards = new ArrayList<Card>();
+		for (int i = 0; i < ranks.length; i++)
       {
-        for (int k = 0; k < ranks.length; k++)
+        for (int k = 0; k < suits.length; k++)
         {
-          Card te = new Card(ranks[k], suits[i], values[k]);
-        cards.add(te);
+          Card te = new Card(ranks[i], suits[k], values[i]);
+          cards.add(te);
         }
       }
     size = cards.size();
-    this.shuffle();
+    shuffle();
 	}
 
 
@@ -49,8 +49,9 @@ public class Deck {
 	 * Determines if this deck is empty (no undealt cards).
 	 * @return true if this deck is empty, false otherwise.
 	 */
-	public boolean isEmpty() {
-		if(cards.size() == 0)
+	public boolean isEmpty() 
+  {
+		if(size == 0)
     {
       return true;
     }
@@ -81,13 +82,14 @@ public class Deck {
 	 */
 	public Card deal() 
   {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+    if(isEmpty())
+    {
+      return null;
+    }
+    size--;
+		return cards.get(size() - 1);
 	}
- /* It would be more efficient to leave the cards in the list. Instead of removing the
-card, simply decrement the size instance variable and then return the card at size. In this
-algorithm, the size instance variable does double duty; it determines which card to “deal” and
-it also represents how many cards in the deck are left to be dealt. This is the algorithm that you
-should implement.*/
+  
 
 	/**
 	 * Generates and returns a string representation of this deck.

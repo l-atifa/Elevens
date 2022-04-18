@@ -3,7 +3,7 @@
  *
  * <code>Card</code> represents a playing card.
  */
-public class Card {
+public class CardA {
 
 	/**
 	 * String value that holds the suit of the card
@@ -31,7 +31,7 @@ public class Card {
 	 * @param cardPointValue an <code>int</code> value
 	 *                  containing the point value of the card
 	 */
-	public Card(String cardRank, String cardSuit, int cardPointValue) 
+	public CardA(String cardRank, String cardSuit, int cardPointValue) 
   {
 		rank = cardRank;
     suit = cardSuit;
